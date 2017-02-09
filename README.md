@@ -37,5 +37,5 @@ Then push to GitHub...
 ```shell
 git add -A
 git commit -m "boiler plate"
-git push
+git push --set-upstream origin master
 ```
