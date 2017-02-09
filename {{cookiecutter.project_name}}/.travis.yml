@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- '6'
+script:
+- set -e
+- npm config set {{cookiecutter.project_name}}:profile production
+- npm config {{cookiecutter.project_name}}:polymer_test_skip local
+- npm run build
+- npm run coveralls
+- ./deploy.sh
+env:
+  global:
+  - DEPLOY_BRANCH="master"

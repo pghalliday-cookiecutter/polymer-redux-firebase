@@ -1,0 +1,10 @@
+{
+  "id": "{{cookiecutter.firebase_id}}",
+  "config": {
+    "apiKey": "{{cookiecutter.firebase_api_key}}",
+    "authDomain": "{{cookiecutter.firebase_auth_domain}}",
+    "databaseURL": "{{cookiecutter.firebase_database_url}}",
+    "storageBucket": "{{cookiecutter.firebase_storage_bucket}}",
+    "messagingSenderId": "{{cookiecutter.firebase_messaging_sender_id}}"
+  }
+}

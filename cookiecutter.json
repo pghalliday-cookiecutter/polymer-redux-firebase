@@ -1,0 +1,14 @@
+{
+  "project_name": "new-project",
+  "description": "My new project",
+  "github_username": "my-github-account",
+  "full_name": "My Name",
+  "email": "me@email.com",
+  "website": "http://me.com",
+  "firebase_id": "",
+  "firebase_api_key": "",
+  "firebase_auth_domain": "",
+  "firebase_database_url": "",
+  "firebase_storage_bucket": "",
+  "firebase_messaging_sender_id": ""
+}
