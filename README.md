@@ -15,10 +15,20 @@ Then generate the project boilerplate...
 ```shell
 cookiecutter https://github.com/pghalliday-cookiecutter/polymer-redux-firebase.git
 ```
-Then add your [Firebase](https://console.firebase.google.com) and [SauceLabs](https://saucelabs.com) credentials to the TravisCI config...
+
+Then initialise a git repository...
 
 ```shell
 cd <project name>
+git init
+git add -A
+git commit -m "boiler plate"
+git remote add origin <github repository>
+```
+
+Then add your [Firebase](https://console.firebase.google.com) and [SauceLabs](https://saucelabs.com) credentials to the TravisCI config...
+
+```shell
 travis encrypt FIREBASE_TOKEN=<your firebase token> --add
 travis encrypt SAUCE_USERNAME=<your saucelabs username> --add
 travis encrypt SAUCE_ACCESS_KEY=<your saucelabs access key> --add
@@ -27,9 +37,5 @@ travis encrypt SAUCE_ACCESS_KEY=<your saucelabs access key> --add
 Then push to GitHub...
 
 ```shell
-git init
-git add -A
-git commit -m "boiler plate"
-git remote add origin <github repository>
 git push
 ```
