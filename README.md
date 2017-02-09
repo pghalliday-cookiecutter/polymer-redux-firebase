@@ -17,10 +17,10 @@ cookiecutter https://github.com/pghalliday-cookiecutter/polymer-redux-firebase.g
 Then...
 
 ```shell
-cd your-new-project
+cd <project name>
 git init
 git add -A
 git commit -m "boiler plate"
-git remote add origin etc...
+git remote add origin <github repository>
 git push
 ```
