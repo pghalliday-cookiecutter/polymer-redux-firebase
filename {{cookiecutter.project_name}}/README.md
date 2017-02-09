@@ -36,7 +36,7 @@ npm start
 
 ## Travis-CI
 
-To use the travis config you will need to remove the current encrypted environment variables (if present)  and add your own encrypted authentication information for Firebase and SauceLabs
+To use the travis config you will need to remove the current encrypted environment variables (if present) and add your own encrypted authentication information for Firebase and SauceLabs
 
 Install the `travis` gem
 
