@@ -21,8 +21,6 @@ Then initialise a git repository...
 ```shell
 cd <project name>
 git init
-git add -A
-git commit -m "boiler plate"
 git remote add origin <github repository>
 ```
 
@@ -37,5 +35,7 @@ travis encrypt SAUCE_ACCESS_KEY=<your saucelabs access key> --add
 Then push to GitHub...
 
 ```shell
+git add -A
+git commit -m "boiler plate"
 git push
 ```
