@@ -38,6 +38,7 @@
         describe('with error', function() {
           before(function(done) {
             app.helpers.reset();
+            app.auth.isSignedOut.value = true;
             app.auth.hasError.value = true;
             app.auth.getErrorText.value = 'error';
             app.auth.getSubmittedEmail.value = 'email';
@@ -57,6 +58,7 @@
           before(function(done) {
             app.helpers.reset();
             app.auth.isSignedOut.value = true;
+            app.auth.getSubmittedEmail.value = 'email';
             uiApp = fixture('ui-app');
             flush(done);
           });
