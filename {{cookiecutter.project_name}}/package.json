@@ -8,7 +8,7 @@
     "polymer_test_skip": "sauce"
   },
   "scripts": {
-    "bower:install": "npm run bower -- install",
+    "bower:install": "bower install",
     "config": "cross-conf-env mustache config/$npm_package_config_profile.json app/config.js.mustache > app/config.js",
     "app:lint": "eslint app",
     "app:test": "cross-env BABEL_ENV=test nyc mocha --opts app.mocha.opts",
