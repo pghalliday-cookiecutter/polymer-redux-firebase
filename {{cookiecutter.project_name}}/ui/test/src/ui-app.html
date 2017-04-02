@@ -21,11 +21,8 @@
       describe('ui-app', function() {
         describe('pending sign in', function() {
           before(function(done) {
-            app.helpers.setState({
-              auth: {
-                pending: true,
-              },
-            });
+            app.helpers.reset();
+            app.auth.isPending.value = true;
             uiApp = fixture('ui-app');
             flush(done);
           });
@@ -40,12 +37,10 @@
 
         describe('with error', function() {
           before(function(done) {
-            app.helpers.setState({
-              auth: {
-                error: 'error',
-                email: 'email',
-              },
-            });
+            app.helpers.reset();
+            app.auth.hasError.value = true;
+            app.auth.getErrorText.value = 'error';
+            app.auth.getSubmittedEmail.value = 'email';
             uiApp = fixture('ui-app');
             flush(done);
           });
@@ -58,13 +53,10 @@
           });
         });
 
-        describe('with no user', function() {
+        describe('when signed out', function() {
           before(function(done) {
-            app.helpers.setState({
-              auth: {
-                email: 'email',
-              },
-            });
+            app.helpers.reset();
+            app.auth.isSignedOut.value = true;
             uiApp = fixture('ui-app');
             flush(done);
           });
@@ -83,10 +75,10 @@
                 email: 'email',
                 password: 'password',
               });
-              app.actions.auth.signInWithEmailAndPassword
+              app.auth.signInWithEmailAndPassword
               .should.have.been.calledWith('email', 'password');
-              app.store.dispatch.should.have.been.calledWith(
-                'auth.signInWithEmailAndPassword'
+              store.dispatch.should.have.been.calledWith(
+                app.auth.signInWithEmailAndPassword.value
               );
             });
           });
@@ -95,24 +87,20 @@
             it('should dispatch a signInWithGoogle action', function() {
               app.helpers.reset();
               uiApp.$$('#signIn').fire('sign-in-with-google');
-              app.actions.auth.signInWithGoogle
+              app.auth.signInWithGoogle
               .should.have.been.calledOnce;
-              app.store.dispatch.should.have.been.calledWith(
-                'auth.signInWithGoogle'
+              store.dispatch.should.have.been.calledWith(
+                app.auth.signInWithGoogle.value
               );
             });
           });
         });
 
-        describe('with a signed in user', function() {
+        describe('when signed in', function() {
           before(function(done) {
-            app.helpers.setState({
-              auth: {
-                user: {
-                  displayName: 'Fred Bloggs',
-                },
-              },
-            });
+            app.helpers.reset();
+            app.auth.isSignedIn.value = true;
+            app.auth.getDisplayName.value = 'Fred Bloggs';
             uiApp = fixture('ui-app');
             flush(done);
           });
@@ -128,8 +116,10 @@
             it('should dispatch a signOut action', function() {
               app.helpers.reset();
               uiApp.$$('#signOut').fire('sign-out');
-              app.actions.auth.signOut.should.have.been.calledOnce;
-              app.store.dispatch.should.have.been.calledWith('auth.signOut');
+              app.auth.signOut.should.have.been.calledOnce;
+              store.dispatch.should.have.been.calledWith(
+                app.auth.signOut.value
+              );
             });
           });
         });

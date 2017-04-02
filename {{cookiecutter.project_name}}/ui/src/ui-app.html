@@ -45,37 +45,37 @@
       properties: {
         hasError: {
           type: Boolean,
-          statePath: app.selectors.auth.hasError,
+          statePath: app.auth.hasError,
         },
         errorText: {
           type: String,
-          statePath: app.selectors.auth.errorText,
+          statePath: app.auth.getErrorText,
         },
         isPending: {
           type: Boolean,
-          statePath: app.selectors.auth.isPending,
+          statePath: app.auth.isPending,
         },
         isSignedIn: {
           type: Boolean,
-          statePath: app.selectors.auth.isSignedIn,
+          statePath: app.auth.isSignedIn,
         },
         displayName: {
           type: String,
-          statePath: app.selectors.auth.displayName,
+          statePath: app.auth.getDisplayName,
         },
         isSignedOut: {
           type: Boolean,
-          statePath: app.selectors.auth.isSignedOut,
+          statePath: app.auth.isSignedOut,
         },
         email: {
           type: String,
-          statePath: app.selectors.auth.email,
+          statePath: app.auth.getSubmittedEmail,
         }
       },
       actions: {
-        signInWithGoogle: app.actions.auth.signInWithGoogle,
-        signInWithEmailAndPassword: app.actions.auth.signInWithEmailAndPassword,
-        signOut: app.actions.auth.signOut,
+        signInWithGoogle: app.auth.signInWithGoogle,
+        signInWithEmailAndPassword: app.auth.signInWithEmailAndPassword,
+        signOut: app.auth.signOut,
       },
       _signInWithGoogle: function() {
         return this.dispatch(
