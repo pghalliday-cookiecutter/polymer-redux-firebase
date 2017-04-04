@@ -1,6 +1,6 @@
 {
-  "name": "polymer-firebase-boilerplate",
-  "short_name": "Bump2Solve",
+  "name": "{{cookiecutter.project_name}}",
+  "short_name": "{{cookiecutter.project_name}}",
   "start_url": "index.html",
   "display": "standalone",
   "theme_color": "#05357A",
